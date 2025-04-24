@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BMI Calculator</title>
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script>
+		function calculate() {
+		var kg= parseFloat(document.getElementById("kg").value);
+		var meter= parseFloat(document.getElementById("meter").value);
+		var BMI= kg / (meter*meter)
+		document.getElementById("BMI").innerText = "BMI: " + BMI.toFixed(2);
+
+		if (BMI < 18.5){
+		result= "Underweight"
+		}
+
+		else if (BMI >= 18.5 && BMI <= 24.9){
+		result= "Normal Weight"
+		}
+
+		else if (BMI >=25 && BMI <= 29.9){
+		result= "Overweight"
+		}
+		else if (BMI>=30){
+		result= "Obese"
+		}
+		document.getElementById("result").innerText ="Result: " + result;
+		}
+	</script>
+<style>
+  body {
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-top: 250px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+  }
+
+  p {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+  }
+</style>
+
+
+</head>
+<body>
+	<div class="container">
+		<h1 style="text-align: center; margin-bottom: 20;">BMI Calculator</h1>
+		<div class="mb-3">
+			<input type="text" id="kg" placeholder="Enter Weight in Kilogram">
+			<input type="text" id="meter" placeholder="Enter Height in Meters">
+			<button onclick="calculate()">Calculate</button>
+		</div>
+		<p id="BMI"> BMI: </p>
+		<p id="result"> Result: </p>
+	</div>
+
+
+
+
+</body>
+</html>
